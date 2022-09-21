@@ -1,0 +1,24 @@
+#include <stdio.h>;
+int main()
+{
+	float b;
+	printf("input b ");
+	scanf_s("%f", &b);
+	float q;
+	printf("input q ");
+	scanf_s("%f", &q);
+	int n;
+	printf("input n ");
+	scanf_s("%d", &n);
+
+    float Sum;
+	Sum = b;
+	for (int i = 0; i < n - 1; i++)
+		{
+		b *= q;
+		Sum += b;
+		}
+		printf("%f", Sum);
+
+	return 0;
+}
