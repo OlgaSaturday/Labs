@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+int factorial(int x)
+{
+	if (x > 0)
+		return x * factorial(x - 1);
+	else
+		return 1;
+}
+
+int main()
+{
+	float X;
+	printf("input X ");
+	scanf_s("%f", &X);
+	int N;
+	printf("input N ");
+	scanf_s("%d", &N);
+	float res;
+	res = 0;
+
+	for (int i = 0; i <= N; i++)
+	{
+		res += pow(-1, i) * pow(X, 2 * i + 1) / factorial(2 * i + 1);
+	}
+	printf("%f", res);
+	return 0;
+}
+
+
