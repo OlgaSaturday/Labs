@@ -1,0 +1,23 @@
+#include <stdio.h>;
+int main()
+{
+	int n;
+	printf("input n "); 
+	scanf_s("%d", &n);
+	int i, S, P;
+	S = 0;
+	P = 1;
+	for (i = 1; i <= n; i++)
+	{
+		if (i % 3 == 0)
+		{
+			S += i;
+			P *= i;
+		}
+	
+	}
+	printf("S = %d\n", S);
+	printf("P = %d\n", P);
+	return 0;
+
+}
