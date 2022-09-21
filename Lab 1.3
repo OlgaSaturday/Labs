@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+int main ()
+{
+	float r, a;
+printf("input r = ");
+scanf_s("%f", &r);
+printf("input a = ");
+scanf_s("%f", &a);
+
+if (r <= (a / 2))
+	printf("circle fits in square\n");
+else
+printf("circle doesn't fit in square\n");
+
+if ((a / sqrt(2)) <= r)
+printf("square fits in circle");
+else
+printf("square doesn't fit in circle");
+
+	return 0;
+}
