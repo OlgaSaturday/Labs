@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+	float a, b, c;
+	printf("input a = ");
+	scanf_s("%f", &a);
+	printf("input b = ");
+	scanf_s("%f", &b);
+	printf("input c = ");
+	scanf_s("%f", &c);
+
+
+	if (a == -b)
+		printf("numbers are contrary\n");
+	else if (a == -c)
+		 printf("numbers are contrary\n");
+	     else if (b == -c)
+		      printf("numbers are contrary");
+	          else
+		      printf("numbers aren't contrary");
+
+	return 0;
+}
