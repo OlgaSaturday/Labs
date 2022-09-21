@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main()
+{
+	int n;
+	n = 1;
+	float a;
+	printf("input a ");
+	scanf_s("%f", &a);
+
+	float sum;
+	sum = n;
+	for (int i = 1; sum < a; i++)
+	{
+		n += 1;
+		sum += (1 / (float) n);
+	}
+	printf ("%d", n);
+	return 0;
+}
