@@ -1,0 +1,103 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+int powerTen(int a);
+
+int ten_power(int a)
+{
+    int num = 10;
+    for (int i = 1; i < a; i++)
+    {
+        num *= 10;
+    }
+    return num;
+}
+
+int main()
+{
+    srand(time(NULL));
+    int choice_of_input;
+    float rd, ten;
+    printf("chose the way of inputting: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input) != 1 || choice_of_input != 1 && choice_of_input != 2)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    float array[100];
+    int n;
+    printf("input the size of array  ");
+    while (scanf_s("%d", &n) != 1 || n > 100 || n < 1)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (choice_of_input == 1)
+        {
+            rd = rand() % 100001;
+            ten = ten_power(rand() % 7);
+            array[i] = rd / ten;
+        }
+        else
+        {
+            while (scanf_s("%f", &array[i]) != 1)
+            {
+                printf("try again\n");
+                rewind(stdin);
+            }
+        }
+
+    }
+
+    /*  for (int i = 0; i < n; i++)
+          printf(" % f \t", array[i]); */
+
+    float sum1 = array[0];
+    for (int i = 1; i < n; i++)
+    {
+        if (i % 2 == 0) sum1 += array[i];
+    }
+    printf("\n%f", sum1);
+
+    int ind1 = -1;
+    for (int i = 0; i < n; i++)
+    {
+        if (array[i] < 0)
+        {
+            ind1 = i;
+            break;
+        }
+    }
+
+    int ind2 = -2;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        if (array[i] < 0)
+        {
+            ind2 = i;
+            break;
+        }
+    }
+
+    float sum2 = 0;
+    for (int i = ind1 + 1; i < ind2; i++)
+    {
+        sum2 += array[i];
+    }
+    printf("\n%f", sum2);
+
+    if (ind1 == ind2)
+        printf("\nonly one neganive number");
+
+    if (ind1 + 1 == ind2)
+        printf("\nnegative numbers are staying one by one");
+    
+    if (ind1 == -1 && ind2 == -2)
+        printf("\nno negative numbers");
+
+    return 0;
+}
