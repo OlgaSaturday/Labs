@@ -1,0 +1,101 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+int powerTen(int a);
+
+int ten_power(int a)
+{
+    int num = 10;
+    for (int i = 1; i < a; i++)
+    {
+        num *= 10;
+    }
+    return num;
+}
+
+int main()
+{
+    srand(time(NULL));
+    int choice_of_input;
+    float rd, ten;
+    printf("chose the way of inputting: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input) != 1 || choice_of_input != 1 && choice_of_input != 2)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    float array[100];
+    int n;
+    printf("input the size of array  ");
+    while (scanf_s("%d", &n) != 1 || n > 100 || n < 1)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (choice_of_input == 1)
+        {
+            rd = rand() % 100001;
+            ten = ten_power(rand() % 7);
+            array[i] = rd / ten;
+        }
+        else
+        {
+            while (scanf_s("%f", &array[i]) != 1)
+            {
+                printf("try again\n");
+                rewind(stdin);
+            }
+        }
+
+    }
+
+    /*  for (int i = 0; i < n; i++)
+          printf(" % f \t", array[i]); */
+
+    int ind_max = 0;
+    int ind_min = 0;
+
+    for (int i = 1; i < n; i++)
+    {
+        if (array[ind_max] < array[i])
+        {
+            ind_max = i;
+        }
+    }
+
+    for (int i = 1; i < n; i++)
+    {
+        if (array[ind_min] >= array[i])
+        {
+            ind_min = i;
+        }
+    }
+
+    if (ind_max < ind_min)
+    {
+        int tmp = ind_min;
+        ind_min = ind_max;
+        ind_max = tmp;
+    }
+
+    if (ind_max == ind_min + 1)
+        printf("unpossible to remade");
+    else
+    {
+        for (int i = 0; i + ind_max < n; i++)
+        {
+            array[ind_min + i + 1] = array[i + ind_max];
+        }
+        n -= (ind_max - ind_min) - 1;
+
+        for (int i = 0; i < n; i++)
+        {
+            printf("%f\t", array[i]);
+        }
+    }
+    return 0;
+}
