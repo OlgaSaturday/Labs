@@ -1,0 +1,127 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main()
+{
+    srand(time(NULL));
+    int choice_of_input_1;
+    int rd, ten;
+    int array1[100], array2[100], array3[200], n, m;
+    printf("chose the way of inputting for array 1: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input_1) != 1 || (choice_of_input_1 != 1 && choice_of_input_1 != 2))
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    printf("input the size of array 1  ");
+    while (scanf_s("%d", &n) != 1 || n > 100 || n < 1)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }     
+        if (choice_of_input_1 == 1)
+        {
+            for (int i = 0; i < n; i++) 
+            {
+                array1[i] = rand() % 10001;
+                if (i > 0) 
+                {
+                    if (array1[i - 1] <= array1[i])
+                        i--;
+                }
+            }
+        }
+        else
+        {
+                while (scanf_s("%d", &array1[0]) != 1)
+                {
+                    printf("try again\n");
+                    rewind(stdin);
+                }
+                for (int i = 1; i < n; i++)
+                {
+                    while (scanf_s("%d", &array1[i]) != 1 || array1[i - 1] <= array1[i])
+                    {
+                        printf("try again\n");
+                        rewind(stdin);
+                    }
+                }
+        }
+
+        for (int i = 0; i < n; i++)
+            printf("%d\t", array1[i]);
+
+    int choice_of_input_2;
+    printf("\nchose the way of inputting for array 2: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input_2) != 1 || choice_of_input_2 != 1 && choice_of_input_2 != 2)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    printf("input the size of array 2  ");
+    while (scanf_s("%d", &m) != 1 || m > 100 || m < 1)
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    if (choice_of_input_2 == 1)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            array2[i] = rand() % 10001;
+            if (i > 0)
+            {
+                if (array2[i - 1] <= array2[i])
+                    i--;
+            }
+        }
+    }
+    else
+    {
+        while (scanf_s("%d", &array2[0]) != 1)
+        {
+            printf("try again\n");
+            rewind(stdin);
+        }
+        for (int i = 1; i < n; i++)
+        {
+            while (scanf_s("%d", &array2[i]) != 1 || array2[i - 1] <= array2[i])
+            {
+                printf("try again\n");
+                rewind(stdin);
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+        printf("%d\t", array2[i]);
+
+    int a = 0;
+    int b = 0;
+    for (; a < n && b < m; )
+    {
+        if (array1[a] < array2[b])
+        {
+            array3[a + b] = array2[b];
+            b++;
+        }
+        else
+        {
+            array3[a + b] = array1[a];
+            a++;
+        }
+    }
+
+    for (; a < n; a++)
+        array3[a + b] = array1[a];
+    for (; b < m; b++)
+        array3[a + b] = array2[b];
+
+    printf("\nresulting array:  ");
+    for (int k = 0; k < (n + m);k++)
+        printf("%d  ", array3[k]);
+    return 0;
+}
