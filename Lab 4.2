@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main()
+{
+    srand(time(NULL));
+    int positive_column = -1;
+    int choice_of_input;
+    int matr[100][100], n, m; // n количество строк, m количество столбцов
+    printf("chose the way of inputting for matr: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input) != 1 || (choice_of_input != 1 && choice_of_input != 2) || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    printf("input the width of matr  ");
+    while (scanf_s("%d", &m) != 1 || m > 100 || m < 1 || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+    printf("input the height of matr  ");
+    while (scanf_s("%d", &n) != 1 || n > 100 || n < 1 || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+    if (choice_of_input == 1)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                matr[i][j] = rand() % 2001 - 100 + 1;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                printf("input %d row %d column element ", i + 1, j + 1);
+                while (scanf_s("%d", &matr[i][j]) != 1 || getchar() != '\n')
+                {
+                    printf("try again\n");
+                    rewind(stdin);
+                }
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            printf("%4d ", matr[i][j]);
+        }
+        printf("\n");
+    }
+
+    int is_positive;
+    for (int j = 0; j < m; j++)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            if (matr[i][j] > 0)
+                is_positive = 1;
+            else
+            {
+                is_positive = 0;
+                break;
+            }
+        }
+        if (is_positive)
+        {
+            positive_column = j;
+            break;
+        }
+    }
+
+    if (is_positive)
+    {
+        if (positive_column > 0)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                matr[i][positive_column - 1] *= -1;
+            }
+            printf("the result:\n");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    printf("%4d ", matr[i][j]);
+                }
+                printf("\n");
+            }
+        }
+        else
+            printf("\npositive column is the first one\n");
+    }
+    else
+        printf("\nno positive columns\n");
+
+        return 0;
+}
