@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main()
+{
+    srand(time(NULL));
+    int max;
+    int choice_of_input;
+    int matr[100][100], n;
+    printf("chose the way of inputting for matr: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input) != 1 || (choice_of_input != 1 && choice_of_input != 2) || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    printf("input the width and the height of four-square matr  ");
+    while (scanf_s("%d", &n) != 1 || n > 100 || n < 1 || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+    if (choice_of_input == 1)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                matr[i][j] = rand() % 2001 - 100 + 1;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("input %d row %d column element ", i + 1, j + 1);
+                while (scanf_s("%d", &matr[i][j]) != 1 || getchar() != '\n')
+                {
+                    printf("try again\n");
+                    rewind(stdin);
+                }
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            printf("%4d ", matr[i][j]);
+        }
+        printf("\n");
+    }
+    max = matr[0][0];
+    for (int i = 0; i < n/2; i++)
+    {
+        for (int j = 0; j < n/2; j++)
+        {
+            if (max < matr[i][j])
+                max = matr[i][j];
+        }
+    }
+    printf("\nmaximal element of the 1st area: %d\n", max);
+    return 0;
+}
