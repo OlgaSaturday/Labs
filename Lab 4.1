@@ -1,0 +1,111 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+int main()
+{
+    srand(time(NULL));
+    int maxsame = 0, same = 0, next_num, numcol;
+    int choice_of_input, cnt_0=0;
+    int matr[100][100], n, m; // n количество строк, m количество столбцов
+    printf("chose the way of inputting for matr: 1 for random input and 2 for keyboard input  ");
+    while (scanf_s("%d", &choice_of_input) != 1 || (choice_of_input != 1 && choice_of_input != 2) || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+
+    printf("input the width of matr  ");
+    while (scanf_s("%d", &m) != 1 || m > 100 || m < 1 ||getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+    printf("input the height of matr  ");
+    while (scanf_s("%d", &n) != 1 || n > 100 || n < 1 || getchar() != '\n')
+    {
+        printf("try again\n");
+        rewind(stdin);
+    }
+    if (choice_of_input == 1)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                matr[i][j] = rand() % 2001 - 100 + 1;
+            }
+        }
+    }
+    else
+    {
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                printf("input %d row %d column element ", i + 1, j + 1);
+                while (scanf_s("%d", &matr[i][j]) != 1 || getchar() != '\n')
+                {
+                    printf("try again\n");
+                    rewind(stdin);
+                }
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            printf("%4d ", matr[i][j]);
+        }
+        printf("\n");
+    }
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (matr[i][j] == 0) 
+            {
+                cnt_0++;
+                break;
+            }
+        }
+    }
+    if(cnt_0==0)
+        printf("no rows with zero\n");
+    else
+        printf("the number of rows with zero: %d\n", cnt_0);
+
+    for (int j = 0; j < m; j++)
+    {
+        same = 0;
+        next_num = matr[0][j];
+        for (int i = 0; i < n; i++)
+        {
+            if (matr[i][j] == next_num)
+                same++;
+            else
+            {
+                if (maxsame < same) 
+                {
+                    numcol = j;
+                    maxsame = same;
+                }
+                same = 1;
+                next_num = matr[i][j];
+            }
+        }
+        if (maxsame < same)
+        {
+            maxsame = same;
+            numcol = j;
+        }
+        if (maxsame == 1)
+            numcol = -1;
+    }
+    if (numcol == -1)
+        printf("no columns with the series of same numbers");
+    else
+        printf("column with longest series of same numbers: %d",numcol+1);
+    return 0;
+}
