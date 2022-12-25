@@ -1,0 +1,6 @@
+﻿  Functions.c
+  Main.c
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7\Lab 7\Main.c(15,22): warning C4113: "void (__cdecl *)()" отличается в списках параметров от "void (__cdecl *)(void)"
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7\Lab 7\Main.c(18,22): warning C4113: "void (__cdecl *)()" отличается в списках параметров от "void (__cdecl *)(void)"
+  Создание кода...
+  Lab 7.vcxproj -> C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7\x64\Debug\Lab 7.exe
