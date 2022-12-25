@@ -1,0 +1,7 @@
+﻿  Functions.c
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 5 task 2\Lab 5 task 2\Functions.c(94,29): warning C4028: формальный параметр 2 отличается от объявления
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 5 task 2\Lab 5 task 2\Functions.c(109,18): warning C4047: функция: "int *" отличается по уровням косвенного обращения от "int **"
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 5 task 2\Lab 5 task 2\Functions.c(109,16): warning C4024: move: различные типы для формального и фактического параметров 2
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 5 task 2\Lab 5 task 2\Functions.c(152,20): warning C4047: функция: "int *" отличается по уровням косвенного обращения от "int"
+C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 5 task 2\Lab 5 task 2\Functions.c(152,19): warning C4024: remade: различные типы для формального и фактического параметров 2
+  Lab 5 task 2.vcxproj -> C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 5 task 2\x64\Debug\Lab 5 task 2.exe

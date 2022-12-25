@@ -1,0 +1,12 @@
+int check_n();
+int check_m();
+int check_in();
+int** memory(int n, int m);
+void input(int** matr, int n, int m);
+void show(int** matr, int n, int m);
+int remade(int** matr, int n, int m);
+int minimal(int** matr, int j, int n);
+int maximal(int* matr, int m);
+void move(int** matr, int* n, int i);
+void result(int** matr, int n, int m);
+void clean(int** matr, int n);
