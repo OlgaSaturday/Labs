@@ -1,8 +1,0 @@
-﻿  Functions.c
-C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\Lab 7 task 2 (2)\Functions.c(103,40): warning C4047: =: "char" отличается по уровням косвенного обращения от "char *"
-C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\Lab 7 task 2 (2)\Functions.c(107,19): warning C4047: =: "char *" отличается по уровням косвенного обращения от "char"
-C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\Lab 7 task 2 (2)\Functions.c(111,37): warning C4047: функция: "char *" отличается по уровням косвенного обращения от "char"
-C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\Lab 7 task 2 (2)\Functions.c(111,34): warning C4024: number_of_symbols_in_line: различные типы для формального и фактического параметров 1
-C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\Lab 7 task 2 (2)\Functions.c(112,26): warning C4022: realloc: несоответствие указателя для фактического параметра 1
-C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\Lab 7 task 2 (2)\Functions.c(112,48): warning C4047: =: "char" отличается по уровням косвенного обращения от "char *"
-  Lab 7 task 2 (2).vcxproj -> C:\Users\User\Documents\Visual Studio 2022\Коды\Lab 7 task 2 (2)\x64\Debug\Lab 7 task 2 (2).exe
